@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+   <extension
+         id="application"
+         point="org.eclipse.core.runtime.applications">
+      <application>
+         <run
+               class="de.vogella.rcp.dialogs.swt.Application">
+         </run>
+      </application>
+   </extension>
+   <extension
+         point="org.eclipse.ui.perspectives">
+      <perspective
+            name="RCP Perspective"
+            class="de.vogella.rcp.dialogs.swt.Perspective"
+            id="de.vogella.rcp.dialogs.swt.perspective">
+      </perspective>
+   </extension>
+   <extension
+         point="org.eclipse.ui.commands">
+      <command
+            defaultHandler="com.example.e4.rcp.todo.handlers.EnterCredentialsHandler"
+            id="de.vogella.rcp.dialogs.swt.PasswordDialog"
+            name="PasswordDialog">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            allPopups="false"
+            locationURI="menu:org.eclipse.ui.main.menu">
+         <command
+               commandId="de.vogella.rcp.dialogs.swt.PasswordDialog"
+               style="push">
+         </command>
+      </menuContribution>
+   </extension>
+   <extension
+         point="org.eclipse.ui.views">
+      <view
+            class="de.vogella.rcp.dialogs.swt.View"
+            id="de.vogella.rcp.dialogs.swt.view"
+            name="View">
+      </view>
+   </extension>
+   <extension
+         point="org.eclipse.ui.perspectiveExtensions">
+      <perspectiveExtension
+            targetID="*">
+         <view
+               id="de.vogella.rcp.dialogs.swt.view"
+               minimized="false"
+               relationship="left"
+               relative="org.eclipse.ui.editorss">
+         </view>
+      </perspectiveExtension>
+   </extension>
+
+</plugin>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension-point id="com.vogella.extensionpoint.definition.greeter" name="Greeter" schema="schema/com.vogella.extensionpoint.definition.greeter.exsd"/>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            allPopups="false"
+            locationURI="menu:org.eclipse.ui.main.menu?after=additions">
+         <command
+               commandId="mycommand"
+               label="My Command"
+               style="push">
+         </command>
+      </menuContribution>
+   </extension>
+   <extension
+         point="org.eclipse.ui.commands">
+      <command
+            defaultHandler="EvaluateContributionsHandler"
+            id="mycommand"
+            name="myname">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.handlers">
+      <handler
+            class="com.vogella.extensionpoint.definition.EvaluateContributionsHandler"
+            commandId="com.vogella.extensionpoint.definition.handler">
+      </handler>
+   </extension>
+
+</plugin>

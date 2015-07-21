@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.commands">
+      <command
+            id="de.vogella.plugin.markers.AddMarker"
+            name="name">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            allPopups="false"
+            locationURI="menu:org.eclipse.ui.main.menu?after=additions">
+         <menu
+               label="marker">
+            <command
+                  commandId="de.vogella.plugin.markers.AddMarker"
+                  label="todo"
+                  style="push">
+            </command>
+         </menu>
+      </menuContribution>
+   </extension>
+   <extension
+         point="org.eclipse.ui.handlers">
+      <handler
+            class="de.vogella.plugin.markers.handler.AddMarker"
+            commandId="de.vogella.plugin.markers.AddMarker">
+      </handler>
+   </extension>
+
+</plugin>

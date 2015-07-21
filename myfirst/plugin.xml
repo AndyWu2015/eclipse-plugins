@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+   <extension
+         point="org.eclipse.ui.commands">
+      <category
+            name="Sample Category"
+            id="myfirst.commands.category">
+      </category>
+      <command
+            name="Sample Command"
+            categoryId="myfirst.commands.category"
+            id="myfirst.commands.sampleCommand">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.handlers">
+      <handler
+            commandId="myfirst.commands.sampleCommand"
+            class="myfirst.handlers.SampleHandler">
+      </handler>
+   </extension>
+   <extension
+         point="org.eclipse.ui.bindings">
+      <key
+            commandId="myfirst.commands.sampleCommand"
+            contextId="org.eclipse.ui.contexts.window"
+            sequence="M1+6"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration">
+      </key>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            locationURI="menu:org.eclipse.ui.main.menu?after=additions">
+         <menu
+               label="my first"
+               mnemonic="M"
+               id="myfirst.menus.sampleMenu">
+            <command
+                  commandId="myfirst.commands.sampleCommand"
+                  mnemonic="S"
+                  id="myfirst.menus.sampleCommand">
+            </command>
+         </menu>
+      </menuContribution>
+   </extension>
+
+</plugin>
