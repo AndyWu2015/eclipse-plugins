@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Second
-Bundle-SymbolicName: second;singleton:=true
+Bundle-Name: RPCViewList
+Bundle-SymbolicName: RPCViewList;singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.ui
