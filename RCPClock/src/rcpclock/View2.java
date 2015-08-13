@@ -41,7 +41,7 @@ public class View2 extends ViewPart {
 						Date date = new Date();
 						String time = df.format(date);
 						label.setText(time);
-						System.out.println("change:" + time);
+						//System.out.println("change:" + time);
 					}
 				});
 			}
@@ -66,7 +66,7 @@ public class View2 extends ViewPart {
 
 		Button button = new Button(parent, SWT.PUSH);
 		button.setText("STOP");
-		button.setSize(50, 150);
+		button.setSize(200, 100);
 		button.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
@@ -81,14 +81,14 @@ public class View2 extends ViewPart {
 					button.setText("STOP");
 					// restart the thread
 					timeChanger = new Timer();
-					timeChanger.schedule(new ChangeTask(), 0,1000);
+					timeChanger.schedule(new ChangeTask(), 0, 1000);
 				}
 			}
 		});
 		GridData gd = new GridData(SWT.FILL, SWT.FILL, false, false, 1, 1);
 		button.setLayoutData(gd);
 		timeChanger = new Timer();
-		timeChanger.schedule(new ChangeTask(), 0,1000);
+		timeChanger.schedule(new ChangeTask(), 0, 1000);
 	}
 
 	public void setFocus() {

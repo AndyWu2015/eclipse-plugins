@@ -16,24 +16,25 @@ import org.eclipse.swt.widgets.Label;
 import org.eclipse.ui.part.ViewPart;
 
 public class View extends ViewPart {
-	
+
 	public static final String ID = "RCPClock.view";
 
 	public Label label = null;
-	
+
 	/**
 	 * the thread that change the Libel every every second
+	 * 
 	 * @author liferay
 	 *
 	 */
 	class TimeChanger extends Thread {
-		//the state of the thread for self stop
+		// the state of the thread for self stop
 		private boolean isRun = true;
-		
-	    public void stopThread(boolean isRun) {
-	        this.isRun = !isRun;
-	    }
-	    
+
+		public void stopThread(boolean isRun) {
+			this.isRun = !isRun;
+		}
+
 		@Override
 		public void run() {
 			while (isRun) {
@@ -47,16 +48,16 @@ public class View extends ViewPart {
 							Date date = new Date();
 							String time = df.format(date);
 							label.setText(time);
-							//System.out.println("change:" + time);
+							// System.out.println("change:" + time);
 						}
 					});
 				}
-				//sleep 1s
+				// sleep 1s
 				haveArest(1000);
 			}
 		}
 	}
-	
+
 	TimeChanger timeChanger = null;
 
 	public void createPartControl(Composite parent) {
@@ -67,13 +68,12 @@ public class View extends ViewPart {
 
 		label = new Label(parent, SWT.NONE);
 		label.setSize(50, 500);
-		
-		SimpleDateFormat df = new SimpleDateFormat(
-				"hh:mm:ss a", Locale.ENGLISH);
+
+		SimpleDateFormat df = new SimpleDateFormat("hh:mm:ss a", Locale.ENGLISH);
 		Date date = new Date();
 		String time = df.format(date);
 		label.setText(time);
-		
+
 		Button button = new Button(parent, SWT.PUSH);
 		button.setText("STOP");
 		button.setSize(50, 150);
@@ -83,13 +83,13 @@ public class View extends ViewPart {
 				Button button = (Button) e.getSource();
 				String text = button.getText();
 				if (text.equals("STOP")) {
-					//System.out.println("Starte:"+timeChanger.getState());
+					// System.out.println("Starte:"+timeChanger.getState());
 					button.setText("START");
 					timeChanger.stopThread(true);
 				} else {
-					//System.out.println("Starte:"+timeChanger.getState());
+					// System.out.println("Starte:"+timeChanger.getState());
 					button.setText("STOP");
-					//restart the thread
+					// restart the thread
 					timeChanger = new TimeChanger();
 					timeChanger.start();
 				}
@@ -101,7 +101,7 @@ public class View extends ViewPart {
 		timeChanger.start();
 	}
 
-	//the method for sleep
+	// the method for sleep
 	private static void haveArest(int sleepTime) {
 		try {
 			Thread.sleep(sleepTime);
