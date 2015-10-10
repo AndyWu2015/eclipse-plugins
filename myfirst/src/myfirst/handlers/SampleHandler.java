@@ -5,6 +5,10 @@ import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.ResourcesPlugin;
+import org.eclipse.core.runtime.IExtension;
+import org.eclipse.core.runtime.IExtensionPoint;
+import org.eclipse.core.runtime.IExtensionRegistry;
+import org.eclipse.core.runtime.Platform;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.handlers.HandlerUtil;
@@ -34,6 +38,15 @@ public class SampleHandler extends AbstractHandler {
 		}else{
 			System.out.println(project.getName());
 		}
+		IExtensionRegistry registry = Platform.getExtensionRegistry();
+        IExtensionPoint point = registry.getExtensionPoint("org.eclipse.ui.views");
+        if (point == null) 
+        	return null;
+        IExtension[] extensions = point.getExtensions();
+        for (int i = 0; i < extensions.length; i++)
+        {
+        	System.out.println(extensions[i].getContributor().getName());
+        }
 		MessageDialog.openInformation(
 				window.getShell(),
 				"Myfirst",

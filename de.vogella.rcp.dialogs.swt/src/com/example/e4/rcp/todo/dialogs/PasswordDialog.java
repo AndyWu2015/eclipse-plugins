@@ -2,9 +2,17 @@ package com.example.e4.rcp.todo.dialogs;
 
 import org.eclipse.jface.dialogs.Dialog;
 import org.eclipse.jface.dialogs.IDialogConstants;
+import org.eclipse.jface.viewers.ArrayContentProvider;
+import org.eclipse.jface.viewers.IStructuredContentProvider;
+import org.eclipse.jface.viewers.ITableLabelProvider;
+import org.eclipse.jface.viewers.LabelProvider;
+import org.eclipse.jface.viewers.TableViewer;
+import org.eclipse.jface.viewers.Viewer;
+import org.eclipse.jface.viewers.ViewerSorter;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.ModifyEvent;
 import org.eclipse.swt.events.ModifyListener;
+import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.graphics.Point;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
@@ -12,13 +20,41 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Shell;
+import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.Text;
+import org.eclipse.ui.ISharedImages;
+import org.eclipse.ui.PlatformUI;
 
 public class PasswordDialog extends Dialog {
   private Text txtUser;
   private Text txtPassword;
   private String user = "";
   private String password = "";
+  private TableViewer viewer;
+  
+  class ViewContentProvider implements IStructuredContentProvider {
+		public void inputChanged(Viewer v, Object oldInput, Object newInput) {
+		}
+		public void dispose() {
+		}
+		public Object[] getElements(Object parent) {
+			return new String[] { "One", "Two", "Three" };
+		}
+	}
+	class ViewLabelProvider extends LabelProvider implements ITableLabelProvider {
+		public String getColumnText(Object obj, int index) {
+			return getText(obj);
+		}
+		public Image getColumnImage(Object obj, int index) {
+			return getImage(obj);
+		}
+		public Image getImage(Object obj) {
+			return PlatformUI.getWorkbench().
+					getSharedImages().getImage(ISharedImages.IMG_OBJ_ELEMENT);
+		}
+	}
+	class NameSorter extends ViewerSorter {
+	}
 
   public PasswordDialog(Shell parentShell) {
     super(parentShell);
@@ -69,6 +105,22 @@ public class PasswordDialog extends Dialog {
         password = passwordText;
       }
     });
+    //cteate tables
+    viewer = new TableViewer(container, SWT.MULTI | SWT.H_SCROLL | SWT.V_SCROLL | SWT.BORDER);
+    //viewer.setContentProvider(ArrayContentProvider.getInstance());
+	viewer.setContentProvider(new ViewContentProvider());
+	viewer.setLabelProvider(new ViewLabelProvider());
+	viewer.setSorter(new NameSorter());
+	//viewer.add("nihao");	
+	//can't be null
+	viewer.setInput(new Object());
+	//viewer.add("nihao");
+	final Table table = viewer.getTable();
+	table.setHeaderVisible(true);
+	table.setLinesVisible(true); 
+	GridData data = new GridData( SWT.FILL, SWT.FILL, true, true );
+	table.setLayoutData( data );
+    
     return container;
   }
 

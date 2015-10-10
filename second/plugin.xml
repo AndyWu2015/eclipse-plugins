@@ -23,8 +23,8 @@
          point="org.eclipse.ui.views">
       <view
             name="View"
-            class="second.View"
-            id="second.view">
+            class="second.TableViewerTest"
+            id="second.TableViewerTest">
       </view>
    </extension>
    <extension
@@ -36,7 +36,7 @@
                minimized="false"
                relative="org.eclipse.ui.editorss"
                relationship="left"
-               id="second.view">
+               id="second.TableViewerTest">
          </view>
       </perspectiveExtension>
    </extension>

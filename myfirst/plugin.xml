@@ -46,5 +46,14 @@
          </menu>
       </menuContribution>
    </extension>
+   <extension point="org.eclipse.ui.views">
+		<view
+			name="My Custom View"
+			icon="relative/path/to/icon.gif"
+			category="org.acme.mycategory"
+			class="org.eclipse.ui.navigator.CommonNavigator"
+			id="org.acme.MyCustomNavigatorID">
+		</view>
+   </extension>
 
 </plugin>

@@ -37,7 +37,7 @@ public class SWTUITest {
 		SWTUITest obj = new SWTUITest();
 		obj.run();
 	}
-	private  void registerAction() {
+	private void registerAction() {
 		btn.addMouseListener(new MouseListener() {
 			@Override
 			public void mouseDoubleClick(MouseEvent e) {
