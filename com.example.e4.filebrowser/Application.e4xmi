@@ -5,7 +5,7 @@
       <children xsi:type="advanced:Perspective" xmi:id="_omr4EPoEEeS5FKI3236qYg" elementId="com.example.e4.filebrowser.perspective.0">
         <children xsi:type="basic:PartSashContainer" xmi:id="_pEDwkPoEEeS5FKI3236qYg" elementId="com.example.e4.filebrowser.partsashcontainer.0">
           <children xsi:type="basic:PartStack" xmi:id="_pxQ00PoEEeS5FKI3236qYg" elementId="com.example.e4.filebrowser.partstack.0">
-            <children xsi:type="basic:Part" xmi:id="_qFMdcPoEEeS5FKI3236qYg" elementId="com.example.e4.filebrowser.part.filebrowser" contributionURI="bundleclass://com.example.e4.filebrowser/com.example.e4.filebrowser.parts.FileBrowserPart" label="FileBrowser"/>
+            <children xsi:type="basic:Part" xmi:id="_qFMdcPoEEeS5FKI3236qYg" elementId="com.example.e4.filebrowser.part.filebrowser" contributionURI="bundleclass://com.example.e4.filebrowser/de.vogella.e4.filebrowser.parts.FileBrowserPart" label="FileBrowser"/>
           </children>
         </children>
       </children>

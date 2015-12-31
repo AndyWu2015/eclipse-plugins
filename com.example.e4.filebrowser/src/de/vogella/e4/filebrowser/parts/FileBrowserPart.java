@@ -1,4 +1,4 @@
-package com.example.e4.filebrowser.parts;
+package de.vogella.e4.filebrowser.parts;
 
 import java.io.File;
 import java.net.URL;
