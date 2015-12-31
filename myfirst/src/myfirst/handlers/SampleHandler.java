@@ -13,6 +13,8 @@ import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.handlers.HandlerUtil;
 
+
+
 /**
  * Our sample handler extends AbstractHandler, an IHandler base class.
  * @see org.eclipse.core.commands.IHandler
@@ -38,6 +40,7 @@ public class SampleHandler extends AbstractHandler {
 		}else{
 			System.out.println(project.getName());
 		}
+		
 		IExtensionRegistry registry = Platform.getExtensionRegistry();
         IExtensionPoint point = registry.getExtensionPoint("org.eclipse.ui.views");
         if (point == null) 
@@ -45,12 +48,11 @@ public class SampleHandler extends AbstractHandler {
         IExtension[] extensions = point.getExtensions();
         for (int i = 0; i < extensions.length; i++)
         {
-        	System.out.println(extensions[i].getContributor().getName());
+        	//System.out.println(extensions[i].getContributor().getName());
         }
-		MessageDialog.openInformation(
-				window.getShell(),
-				"Myfirst",
-				"Hello, Eclipse world");
+        
+		MessageDialog.openInformation(window.getShell(),"Myfirst","Hello, Eclipse world");
+		
 		return null;
 	}
 }
