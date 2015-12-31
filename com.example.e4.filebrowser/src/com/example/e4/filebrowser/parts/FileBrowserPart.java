@@ -33,6 +33,7 @@ public class FileBrowserPart {
     viewer.setContentProvider(new ViewContentProvider());
     viewer.setLabelProvider(new ViewLabelProvider());
     viewer.setInput(File.listRoots());
+    viewer.remove(new Object() );
   }
 
   private void createImage() {
