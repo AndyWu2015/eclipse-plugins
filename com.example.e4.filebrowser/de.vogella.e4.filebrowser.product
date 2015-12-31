@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?pde version="3.5"?>
 
-<product name="com.example.e4.filebrowser" id="com.example.e4.filebrowser.product" application="org.eclipse.e4.ui.workbench.swt.E4Application" version="1.0.0.qualifier" useFeatures="false" includeLaunchers="true">
+<product name="de.vogella.e4.filebrowser" id="de.vogella.e4.filebrowser.product" application="org.eclipse.e4.ui.workbench.swt.E4Application" version="1.0.0.qualifier" useFeatures="false" includeLaunchers="true">
 
    <configIni use="default">
    </configIni>
@@ -14,7 +14,7 @@
    <windowImages/>
 
    <plugins>
-      <plugin id="com.example.e4.filebrowser"/>
+      <plugin id="de.vogella.e4.filebrowser"/>
       <plugin id="com.ibm.icu"/>
       <plugin id="javax.annotation"/>
       <plugin id="javax.inject"/>

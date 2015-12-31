@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Filebrowser
-Bundle-SymbolicName: com.example.e4.filebrowser;singleton:=true
+Bundle-SymbolicName: de.vogella.e4.filebrowser;singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Bundle-Vendor: EXAMPLE
 Require-Bundle: javax.inject;bundle-version="1.0.0",

@@ -5,15 +5,15 @@
          id="product"
          point="org.eclipse.core.runtime.products">
       <product
-            name="com.example.e4.filebrowser"
+            name="de.vogella.e4.filebrowser"
             application="org.eclipse.e4.ui.workbench.swt.E4Application">
          <property
                name="applicationCSS"
-               value="platform:/plugin/com.example.e4.filebrowser/css/default.css">
+               value="platform:/plugin/de.vogella.e4.filebrowser/css/default.css">
          </property>
          <property
                name="appName"
-               value="com.example.e4.filebrowser">
+               value="de.vogella.e4.filebrowser">
          </property>
       </product>
    </extension>
