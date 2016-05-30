@@ -1,17 +1,23 @@
 package myfirst.handlers;
 
+import java.io.File;
+
 import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.resources.IProject;
+import org.eclipse.core.resources.IResource;
+import org.eclipse.core.resources.IResourceVisitor;
 import org.eclipse.core.resources.ResourcesPlugin;
-import org.eclipse.core.runtime.IExtension;
-import org.eclipse.core.runtime.IExtensionPoint;
-import org.eclipse.core.runtime.IExtensionRegistry;
-import org.eclipse.core.runtime.Platform;
-import org.eclipse.jface.dialogs.MessageDialog;
-import org.eclipse.ui.IWorkbenchWindow;
-import org.eclipse.ui.handlers.HandlerUtil;
+import org.eclipse.core.resources.WorkspaceJob;
+import org.eclipse.core.runtime.CoreException;
+import org.eclipse.core.runtime.IPath;
+import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.core.runtime.IStatus;
+import org.eclipse.core.runtime.Status;
+import org.eclipse.core.runtime.jobs.Job;
+import org.eclipse.swt.widgets.Display;
+import org.eclipse.ui.PlatformUI;
 
 
 
@@ -31,8 +37,9 @@ public class SampleHandler extends AbstractHandler {
 	 * the command has been executed, so extract extract the needed information
 	 * from the application context.
 	 */
-	public Object execute(ExecutionEvent event) throws ExecutionException {
-		IWorkbenchWindow window = HandlerUtil.getActiveWorkbenchWindowChecked(event);
+	@SuppressWarnings( "restriction" )
+    public Object execute(ExecutionEvent event) throws ExecutionException {
+		/*IWorkbenchWindow window = HandlerUtil.getActiveWorkbenchWindowChecked(event);
 		//test IProject
 		IProject project = ResourcesPlugin.getWorkspace().getRoot().getProject("test");
 		if(project == null){
@@ -51,7 +58,98 @@ public class SampleHandler extends AbstractHandler {
         	//System.out.println(extensions[i].getContributor().getName());
         }
         
-		MessageDialog.openInformation(window.getShell(),"Myfirst","Hello, Eclipse world");
+		MessageDialog.openInformation(window.getShell(),"Myfirst","Hello, Eclipse world");*/
+	    
+	    /*IRunnableWithProgress op = new IRunnableWithProgress() {
+	        public void run(IProgressMonitor monitor) {
+	           System.out.println("--------running----------");
+	        }
+	     };
+	     IWorkbench wb = PlatformUI.getWorkbench();
+	     IWorkbenchWindow win = wb.getActiveWorkbenchWindow();
+	     Shell shell = win != null ? win.getShell() : null;
+	     try
+        {
+            new ProgressMonitorDialog(shell).run(true, true, op);
+        }
+        catch( InvocationTargetException e )
+        {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        catch( InterruptedException e )
+        {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }*/
+	    
+	    /*IProject[] projects = ResourcesPlugin.getWorkspace().getRoot().getProjects();
+	    
+	    final IProject project = projects[1];
+	    
+	    final IPath projectPath;
+	    try
+        {
+            projectPath = project.getLocation().append( ".project" );
+            final String parentPath = projectPath.toFile().getAbsolutePath();
+            
+            project.accept( new IResourceVisitor()
+            {
+                
+                @Override
+                public boolean visit( IResource resource ) throws CoreException
+                {
+                    IPath projectLoc = resource.getLocation().append( ".project" );
+
+                    File file = projectLoc.toFile();
+                    
+                    String path = file.getAbsolutePath();
+                    
+                    if( file.exists() && !path.equals( parentPath ) )
+                    {
+                        System.out.println("find---------"+resource.getName());
+                        return false;
+                    }
+                    
+                    System.out.println( resource.getProject().getName() + ":" + resource.getName() + ":" +
+                                    resource.getLocation().toPortableString() );
+                    return true;
+                }
+            } );
+        }
+        catch( CoreException e )
+        {
+        }*/
+	    
+	    Job job = new WorkspaceJob( "get latest com.liferay.blade.cli.jar..." )
+        {
+
+            @Override
+            public IStatus runInWorkspace( IProgressMonitor monitor ) throws CoreException
+            {
+                try
+                {
+                    Thread.sleep( 2000 );
+                }
+                catch( InterruptedException e )
+                {
+                    e.printStackTrace();
+                }
+                return new Status(IStatus.OK , "sdsd","sad");
+            }
+            
+        };
+
+/*        try
+        {
+            PlatformUI.getWorkbench().getProgressService().showInDialog( Display.getDefault().getActiveShell(), job );
+        }
+        catch( Exception e )
+        {
+        }*/
+
+        job.setUser( true );
+        job.schedule();
 		
 		return null;
 	}
