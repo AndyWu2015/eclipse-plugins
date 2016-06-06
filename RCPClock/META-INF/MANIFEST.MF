@@ -6,3 +6,4 @@ Bundle-Version: 1.0.0.qualifier
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.ui
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Export-Package: rcpclock

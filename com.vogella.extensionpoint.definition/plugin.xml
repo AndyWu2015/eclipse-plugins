@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?eclipse version="3.4"?>
 <plugin>
-   <extension-point id="com.vogella.extensionpoint.definition.greeter" name="Greeter" schema="schema/com.vogella.extensionpoint.definition.greeter.exsd"/>
+   <extension-point id="greeter" name="Greeter" schema="schema/greeter.exsd"/>
    <extension
          point="org.eclipse.ui.menus">
       <menuContribution

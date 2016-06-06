@@ -24,7 +24,7 @@ public class EvaluateContributionsHandler extends AbstractHandler {
 				.getConfigurationElementsFor(IGREETER_ID);
 		try {
 			for (IConfigurationElement e : config) {
-				System.out.println("Evaluating extension");
+				//System.out.println("Evaluating extension");
 				final Object o = e.createExecutableExtension("class");
 				if (o instanceof IGreeter) {
 					executeExtension(o);
