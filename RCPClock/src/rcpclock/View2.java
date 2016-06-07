@@ -18,9 +18,14 @@ public class View2 extends ViewPart {
 
 	public static final String ID = "RCPClock.view2";
 
-    public static Label label = null;
+    private static Label label = null;
 	
-	SimpleDateFormat df = new SimpleDateFormat( "yyyy-MM-dd hh:mm:ss a", Locale.ENGLISH );
+    public static Label getLabel()
+    {
+        return label;
+    }
+
+    SimpleDateFormat df = new SimpleDateFormat( "yyyy-MM-dd hh:mm:ss a", Locale.ENGLISH );
 	
 	@Override
 	public void createPartControl(Composite parent) {

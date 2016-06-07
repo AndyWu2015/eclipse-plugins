@@ -1,6 +1,7 @@
 package rcpclock;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -11,6 +12,10 @@ import org.eclipse.core.runtime.IExtensionRegistry;
 import org.eclipse.core.runtime.ISafeRunnable;
 import org.eclipse.core.runtime.Platform;
 import org.eclipse.core.runtime.SafeRunner;
+import org.osgi.framework.BundleContext;
+import org.osgi.framework.FrameworkUtil;
+import org.osgi.framework.InvalidSyntaxException;
+import org.osgi.framework.ServiceReference;
 
 public class OperationReader {
 
@@ -18,6 +23,29 @@ public class OperationReader {
 	
 	private static Map<String , Operation> map =  new HashMap<String , Operation>();
 
+	/*public static List<String> getNameProperties()
+	{
+	    BundleContext context = FrameworkUtil.getBundle( OperationReader.class ).getBundleContext();
+	    
+	    Collection<ServiceReference<Operation>> operationRefs = null;
+        try
+        {
+            operationRefs = context.getServiceReferences(Operation.class, null);
+        }
+        catch( InvalidSyntaxException e )
+        {
+            e.printStackTrace();
+        }
+        
+	    List<String> names = new ArrayList<String>();
+	    
+        for(ServiceReference<Operation> operationRef : operationRefs)
+        {
+            names.add(operationRef.getProperty( "name" ).toString());
+        }
+        
+        return names;
+	}*/
 	
 	public static Operation get(String name)
 	{
