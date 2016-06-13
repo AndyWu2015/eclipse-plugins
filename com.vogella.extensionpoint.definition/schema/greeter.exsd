@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!-- Schema file written by PDE -->
 <schema targetNamespace="com.vogella.extensionpoint.definition" xmlns="http://www.w3.org/2001/XMLSchema">
-<annotation>
+   <annotation>
       <appinfo>
          <meta.schema plugin="com.vogella.extensionpoint.definition" id="com.vogella.extensionpoint.definition.greeter" name="Greeter"/>
       </appinfo>

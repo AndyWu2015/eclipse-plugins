@@ -5,6 +5,8 @@
          point="com.vogella.extensionpoint.definition.greeter">
       <client
             class="com.vogella.extensionpoint.contribution.GreeterGerman"></client>
+      <client
+            class="com.vogella.extensionpoint.contribution.GreeterGerman2"></client>
    </extension>
 
 </plugin>
