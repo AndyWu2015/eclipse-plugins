@@ -1,9 +1,0 @@
-Manifest-Version: 1.0
-Bundle-ManifestVersion: 2
-Bundle-Name: Start
-Bundle-SymbolicName: RCPCLock.start;singleton:=true
-Bundle-Version: 1.0.0.qualifier
-Bundle-RequiredExecutionEnvironment: JavaSE-1.7
-Require-Bundle: RCPClock;bundle-version="1.0.0",
- org.eclipse.osgi
-Bundle-Activator: rcpclock.start.Activator
