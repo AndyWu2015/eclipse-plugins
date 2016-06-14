@@ -37,9 +37,45 @@ public class IOperationReader
 
     private static Map<String, IOperation> map = new HashMap<String, IOperation>();
 
+    public static void executeExtension( final Object o )
+    {
+        ISafeRunnable runnable = new ISafeRunnable()
+        {
+
+            @Override
+            public void handleException( Throwable e )
+            {
+                System.out.println( "Exception in client" );
+            }
+
+            @Override
+            public void run() throws Exception
+            {
+                ( (IOperation) o ).operate();
+            }
+        };
+
+        SafeRunner.run( runnable );
+    }
+
     public static IOperation get( String name )
     {
         return map.get( name );
+    }
+
+    public static List<String> getNames()
+    {
+        IExtensionRegistry registry = Platform.getExtensionRegistry();
+        IConfigurationElement[] config = registry.getConfigurationElementsFor( OPERATION_ID );
+        List<String> names = new ArrayList<String>();
+
+        for( IConfigurationElement e : config )
+        {
+            String name = e.getAttribute( "name" );
+            names.add( name );
+        }
+
+        return names;
     }
 
     public static void init()
@@ -67,21 +103,6 @@ public class IOperationReader
         }
     }
 
-    public static List<String> getNames()
-    {
-        IExtensionRegistry registry = Platform.getExtensionRegistry();
-        IConfigurationElement[] config = registry.getConfigurationElementsFor( OPERATION_ID );
-        List<String> names = new ArrayList<String>();
-
-        for( IConfigurationElement e : config )
-        {
-            String name = e.getAttribute( "name" );
-            names.add( name );
-        }
-
-        return names;
-    }
-
     public static void readOperation()
     {
         IExtensionRegistry registry = Platform.getExtensionRegistry();
@@ -102,26 +123,5 @@ public class IOperationReader
         {
             e.printStackTrace();
         }
-
-    }
-
-    public static void executeExtension( final Object o )
-    {
-        ISafeRunnable runnable = new ISafeRunnable()
-        {
-
-            @Override
-            public void handleException( Throwable e )
-            {
-                System.out.println( "Exception in client" );
-            }
-
-            @Override
-            public void run() throws Exception
-            {
-                ( (IOperation) o ).operate();
-            }
-        };
-        SafeRunner.run( runnable );
     }
 }

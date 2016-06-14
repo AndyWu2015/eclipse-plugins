@@ -25,24 +25,6 @@ public class ClockUtil
 
     public static String text;
 
-    public static void setTime( final String date )
-    {
-        final Display display = Display.getDefault();
-
-        if( ( display != null ) && ( !display.isDisposed() ) )
-        {
-            display.asyncExec( new Runnable()
-            {
-
-                @Override
-                public void run()
-                {
-                    View.getLabel().setText( date );
-                }
-            } );
-        }
-    }
-
     public static String getTime()
     {
         final Display display = Display.getDefault();
@@ -61,5 +43,23 @@ public class ClockUtil
         }
 
         return text;
+    }
+
+    public static void setTime( final String date )
+    {
+        final Display display = Display.getDefault();
+
+        if( ( display != null ) && ( !display.isDisposed() ) )
+        {
+            display.asyncExec( new Runnable()
+            {
+
+                @Override
+                public void run()
+                {
+                    View.getLabel().setText( date );
+                }
+            } );
+        }
     }
 }

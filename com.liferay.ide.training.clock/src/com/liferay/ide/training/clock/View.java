@@ -15,9 +15,7 @@
 
 package com.liferay.ide.training.clock;
 
-import java.text.SimpleDateFormat;
 import java.util.List;
-import java.util.Locale;
 
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.SelectionAdapter;
@@ -42,8 +40,6 @@ public class View extends ViewPart
     {
         return label;
     }
-
-    SimpleDateFormat df = new SimpleDateFormat( "yyyy-MM-dd hh:mm:ss a", Locale.ENGLISH );
 
     @Override
     public void createPartControl( Composite parent )

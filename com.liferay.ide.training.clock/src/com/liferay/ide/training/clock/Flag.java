@@ -23,9 +23,9 @@ public class Flag
 
     private static boolean flag = true;
 
-    public static void stopFlag()
+    public static boolean getFlag()
     {
-        flag = false;
+        return flag;
     }
 
     public static void startFlag()
@@ -33,8 +33,8 @@ public class Flag
         flag = true;
     }
 
-    public static boolean getFlag()
+    public static void stopFlag()
     {
-        return flag;
+        flag = false;
     }
 }

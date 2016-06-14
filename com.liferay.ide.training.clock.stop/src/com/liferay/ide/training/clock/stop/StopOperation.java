@@ -23,12 +23,9 @@ import com.liferay.ide.training.clock.IOperation;
  */
 public class StopOperation implements IOperation
 {
-
     @Override
     public void operate()
     {
-
         Flag.stopFlag();
     }
-
 }

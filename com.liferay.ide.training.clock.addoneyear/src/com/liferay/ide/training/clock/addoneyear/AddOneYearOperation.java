@@ -35,14 +35,18 @@ public class AddOneYearOperation implements IOperation
         SimpleDateFormat df = new SimpleDateFormat( "yyyy-MM-dd hh:mm:ss" );
         String UITime = ClockUtil.getTime();
         Date uitime;
+
         try
         {
             uitime = df.parse( UITime );
+
             Calendar rightNow = Calendar.getInstance();
             rightNow.setTime( uitime );
             rightNow.add( Calendar.YEAR, +1 );
+
             Date dt1 = rightNow.getTime();
             String time = df.format( dt1 );
+
             ClockUtil.setTime( time );
         }
         catch( ParseException e )

@@ -20,6 +20,5 @@ package com.liferay.ide.training.clock;
  */
 public interface IOperation
 {
-
     public void operate();
 }
