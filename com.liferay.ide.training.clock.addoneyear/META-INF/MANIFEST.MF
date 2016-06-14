@@ -3,7 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: AddOneYear
 Bundle-SymbolicName: com.liferay.ide.training.clock.addoneyear;singleton:=true
 Bundle-Version: 1.0.0.qualifier
-Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Require-Bundle: com.liferay.ide.training.clock;bundle-version="1.0.0"
 Export-Package: com.liferay.ide.training.clock.addoneyear
 
