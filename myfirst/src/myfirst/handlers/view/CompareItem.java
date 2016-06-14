@@ -70,6 +70,7 @@ public class CompareItem extends BufferedContent implements ITypedElement, IModi
      * @see org.eclipse.compare.IEditableContent#isEditable()
      */
     public boolean isEditable() {
+    	System.out.println("I love hibou");
         return true;
     }
 

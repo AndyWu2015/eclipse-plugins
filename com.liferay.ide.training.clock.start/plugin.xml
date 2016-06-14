@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="com.liferay.ide.training.clock.operation">
+      <operation
+            class="com.liferay.ide.training.clock.start.StartOperation"
+            name="Start">
+      </operation>
+   </extension>
+
+</plugin>
