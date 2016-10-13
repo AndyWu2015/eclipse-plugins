@@ -12,6 +12,11 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.compare.win32;bundle-version="1.0.200",
  org.eclipse.team.ui;bundle-version="3.7.100",
  org.eclipse.equinox.registry,
- org.eclipse.ui.workbench
+ org.eclipse.ui.workbench,
+ org.eclipse.jdt.ui,
+ org.eclipse.jdt.core,
+ org.eclipse.emf.common;bundle-version="2.10.1",
+ org.eclipse.jface
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
-Bundle-Activator: myfirst.handlers.Activator
+Bundle-Activator: myfirst.handlers.Myfirst
+Bundle-ActivationPolicy: lazy

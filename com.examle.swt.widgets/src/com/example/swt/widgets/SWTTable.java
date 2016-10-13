@@ -4,6 +4,7 @@ import org.eclipse.swt.SWT;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Display;
+import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableColumn;
@@ -16,7 +17,9 @@ public class SWTTable {
         
         shell.setLayout(new GridLayout());
 
-
+        Label label = new Label(shell , SWT.BORDER);
+        label.setText( "ssss" );
+        
         Table table = new Table(shell, SWT.MULTI | SWT.BORDER | SWT.FULL_SELECTION);
         table.setLinesVisible(true);
         table.setHeaderVisible(true);

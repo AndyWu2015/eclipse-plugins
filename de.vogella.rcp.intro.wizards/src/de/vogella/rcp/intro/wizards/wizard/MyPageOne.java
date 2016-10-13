@@ -20,7 +20,8 @@ public class MyPageOne extends WizardPage
     {
         super( "First Page" );
         setTitle( "First Page" );
-        setDescription( "Fake Wizard: First page" );
+        //setDescription( "Fake Wizard: First page" );
+        setErrorMessage( "ewew" );
     }
 
     @Override

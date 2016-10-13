@@ -3,6 +3,8 @@ package com.example.swt.widgets;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.DisposeEvent;
 import org.eclipse.swt.events.DisposeListener;
+import org.eclipse.swt.events.PaintEvent;
+import org.eclipse.swt.events.PaintListener;
 import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.widgets.Display;
@@ -25,8 +27,9 @@ public class DisplayAndShell {
 		Label label_1 = new Label(shell_1,SWT.CENTER);
 		label_1.setText("this is the text of a label");
 		label_1.setForeground(color);
-
+		
 		shell_1.open();
+
 		Text test;
 		//create another shell
 		Shell shell_2 = new Shell(display);

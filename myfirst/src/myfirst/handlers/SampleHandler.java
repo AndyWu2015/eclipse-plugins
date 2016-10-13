@@ -1,23 +1,8 @@
 package myfirst.handlers;
 
-import java.io.File;
-
 import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
-import org.eclipse.core.resources.IProject;
-import org.eclipse.core.resources.IResource;
-import org.eclipse.core.resources.IResourceVisitor;
-import org.eclipse.core.resources.ResourcesPlugin;
-import org.eclipse.core.resources.WorkspaceJob;
-import org.eclipse.core.runtime.CoreException;
-import org.eclipse.core.runtime.IPath;
-import org.eclipse.core.runtime.IProgressMonitor;
-import org.eclipse.core.runtime.IStatus;
-import org.eclipse.core.runtime.Status;
-import org.eclipse.core.runtime.jobs.Job;
-import org.eclipse.swt.widgets.Display;
-import org.eclipse.ui.PlatformUI;
 
 
 
@@ -121,7 +106,7 @@ public class SampleHandler extends AbstractHandler {
         {
         }*/
 	    
-	    Job job = new WorkspaceJob( "get latest com.liferay.blade.cli.jar..." )
+/*	    Job job = new WorkspaceJob( "get latest com.liferay.blade.cli.jar..." )
         {
 
             @Override
@@ -140,17 +125,20 @@ public class SampleHandler extends AbstractHandler {
             
         };
 
-/*        try
+        try
         {
             PlatformUI.getWorkbench().getProgressService().showInDialog( Display.getDefault().getActiveShell(), job );
         }
         catch( Exception e )
         {
-        }*/
+        }
 
         job.setUser( true );
-        job.schedule();
-		
+        job.schedule();*/
+	    
+	    //
+
+
 		return null;
 	}
 }

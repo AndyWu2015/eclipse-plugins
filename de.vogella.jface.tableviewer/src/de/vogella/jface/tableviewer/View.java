@@ -9,7 +9,9 @@ import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.Event;
 import org.eclipse.swt.widgets.Label;
+import org.eclipse.swt.widgets.Listener;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableColumn;
 import org.eclipse.swt.widgets.Text;
@@ -44,6 +46,15 @@ public class View extends ViewPart {
     final Table table = viewer.getTable();
     table.setHeaderVisible(true);
     table.setLinesVisible(true);
+    
+    table.addListener( SWT.MeasureItem, new Listener()
+    {
+        public void handleEvent( Event event )
+        {
+            event.gc.setLineWidth( 50 );
+            event.height = 50;
+        }
+    } );
 
     viewer.setContentProvider(new ArrayContentProvider());
     // get the content for the viewer, setInput will call getElements in the
