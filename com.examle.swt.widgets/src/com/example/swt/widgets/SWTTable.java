@@ -16,7 +16,7 @@ public class SWTTable {
         Shell shell = new Shell(display);
         
         shell.setLayout(new GridLayout());
-
+        
         Label label = new Label(shell , SWT.BORDER);
         label.setText( "ssss" );
         

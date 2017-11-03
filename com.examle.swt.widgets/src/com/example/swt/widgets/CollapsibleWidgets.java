@@ -8,6 +8,10 @@ import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
+import org.eclipse.ui.forms.events.ExpansionAdapter;
+import org.eclipse.ui.forms.events.ExpansionEvent;
+import org.eclipse.ui.forms.events.IExpansionListener;
+import org.eclipse.ui.forms.widgets.ExpandableComposite;
 import org.eclipse.ui.forms.widgets.Form;
 import org.eclipse.ui.forms.widgets.FormText;
 import org.eclipse.ui.forms.widgets.FormToolkit;
@@ -32,30 +36,33 @@ public class CollapsibleWidgets
 
         FormToolkit toolkit = new FormToolkit( display );
 
-        Form form = toolkit.createForm( composite );
-
-        form.setText( "Custom Form Widgets Demo" );
-
-        form.getBody().setLayout( new TableWrapLayout() );
-
+        ExpandableComposite exCom = toolkit.createExpandableComposite(composite, ExpandableComposite.TWISTIE | ExpandableComposite.CLIENT_INDENT);
+        
+        exCom.setExpanded(false);
+        
+        Button exButton = new Button(exCom,SWT.PUSH);
+        
+        exButton.setText("butttt");
+        
+        exCom.setClient(exButton);
+        
         Section section =
-            toolkit.createSection( form.getBody(), Section.DESCRIPTION | Section.TREE_NODE | Section.EXPANDED );
+            toolkit.createSection( composite, Section.DESCRIPTION | Section.TREE_NODE | Section.EXPANDED );
 
         section.setText( "This is the title" );
-
-        toolkit.createCompositeSeparator( section );
-
-        section.setDescription( "-= This is a description -=" );
 
         FormText text = toolkit.createFormText( section, false );
 
         text.setText( "This is a long text. The user can show or hide this text "
             + "by expanding or collapsing the expandable composite.", false, false );
 
-        section.setClient( text );
-
-        Button button = new Button( composite, SWT.PUSH );
-        button.setText( "other composite" );
+        Button button = new Button( section, SWT.PUSH );
+        button.setText( "test composite" );
+        
+        section.setClient( button );
+        
+        Button otherbutton = new Button( composite, SWT.PUSH );
+        otherbutton.setText( "other composite" );
 
         shell.open();
 

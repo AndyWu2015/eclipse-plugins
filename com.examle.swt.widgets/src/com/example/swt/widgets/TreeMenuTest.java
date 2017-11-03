@@ -6,6 +6,7 @@ import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.widgets.Display;
+import org.eclipse.swt.widgets.Listener;
 import org.eclipse.swt.widgets.Menu;
 import org.eclipse.swt.widgets.MenuItem;
 import org.eclipse.swt.widgets.Shell;
@@ -20,7 +21,7 @@ public class TreeMenuTest
         Display display = Display.getDefault();
         Shell shell = new Shell( display );
         shell.setLayout( new FillLayout() );
-        final Tree tree = new Tree( shell, SWT.V_SCROLL );
+        final Tree tree = new Tree( shell, SWT.NONE );
         TreeItem some = null;
         for( int i = 0; i < 5; i++ )
         {
@@ -37,9 +38,6 @@ public class TreeMenuTest
 
         tree.pack();
         
-        System.out.println(tree.getItems().length);
-        //some.dispose();
-        System.out.println(tree.getItems().length);
         final TreeItem somefinal = some;
         Menu menu = new Menu( tree );
         MenuItem menuItem = new MenuItem( menu, SWT.NONE );
@@ -58,6 +56,10 @@ public class TreeMenuTest
             }
         } );
         tree.setMenu( menu );
+        
+        
+        Listener[] listeners =  tree.getListeners(SWT.Expand);
+        
         shell.pack();
         shell.open();
         while( !shell.isDisposed() )
